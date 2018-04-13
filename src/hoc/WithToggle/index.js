@@ -10,6 +10,8 @@ function withToggle(Component) {
   HOC.contextTypes = {
     [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
   };
+
+  HOC.displayName = `withToggle ${Component.displayName || Component.name}`;
   return HOC;
 }
 
