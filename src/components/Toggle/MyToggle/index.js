@@ -2,18 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withToggle from '../../../hoc/WithToggle/index';
 
-const MyToggle = ({ on, toggle }) => (
+const MyToggle = ({ toggle: { on, toggle } }) => (
   <button onClick={toggle}>{on ? 'on' : 'off'}</button>
 );
 
 MyToggle.defaultProps = {
-  on: false,
-  toggle: () => {},
+  toggle: {
+    on: false,
+    toggle: () => {},
+  },
 };
 
 MyToggle.propTypes = {
-  on: PropTypes.bool,
-  toggle: PropTypes.func,
+  toggle: PropTypes.shape({
+    on: PropTypes.bool,
+    toggle: PropTypes.func,
+  }),
 };
 
 export default withToggle(MyToggle);

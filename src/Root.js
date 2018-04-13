@@ -2,6 +2,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import Toggle from './components/Toggle/index';
 import MyToggle from './components/Toggle/MyToggle/index';
+import MyEventComponent from './components/MyEventComponent/index';
 
 const Root = () => (
   <div
@@ -14,10 +15,13 @@ const Root = () => (
     }}
   >
     <Toggle onToggle={on => console.log('toggle', on)}>
-      <Toggle.Button />
       <Toggle.On>The button is on</Toggle.On>
       <Toggle.Off>The button is off</Toggle.Off>
+      <Toggle.Button />
+      <hr />
       <MyToggle />
+      <hr />
+      <MyEventComponent event="onClick" on={e => alert(e.type)} />
     </Toggle>
   </div>
 );
