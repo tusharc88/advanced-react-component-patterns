@@ -14,12 +14,16 @@ const Root = () => (
       textAlign: 'center',
     }}
   >
-    <Toggle onToggle={on => console.log('toggle', on)}>
+    <Toggle onToggle={on => (on ? this.myToggle.focus() : null)}>
       <Toggle.On>The button is on</Toggle.On>
       <Toggle.Off>The button is off</Toggle.Off>
       <Toggle.Button />
       <hr />
-      <MyToggle />
+      <MyToggle
+        innerRef={myToggle => {
+          this.myToggle = myToggle;
+        }}
+      />
       <hr />
       <MyEventComponent event="onClick" on={e => alert(e.type)} />
     </Toggle>
