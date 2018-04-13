@@ -1,0 +1,12 @@
+{
+  "name": "advanced-react-component-patterns",
+  "version": "1.0.0",
+  "description": "Advanced React component patterns from egghead course by Kent C Dodds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Tushar Chhibber",
+  "license": "MIT"
+}
