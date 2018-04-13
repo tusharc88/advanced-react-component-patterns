@@ -17,11 +17,11 @@ function withToggle(Component) {
   HOC.WrappedComponent = Component;
 
   // for better debugging, it shows descriptive displayName in React dev tools
-  HOC.HOC.displayName = `withToggle ${Component.displayName || Component.name}`;
+  HOC.displayName = `withToggle ${Component.displayName || Component.name}`;
 
   // wrapping HOC in hoistNonReactStatics to make all non react static things
   // in Wrapped Component available at this HOC level
-  return hoistNonReactStatics(HOC);
+  return hoistNonReactStatics(HOC, Component);
 }
 
 export default withToggle;
