@@ -11,7 +11,8 @@ function withToggle(Component) {
     [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
   };
 
-  // for referring to inner component while testing
+  // for referring to inner component while testing,
+  // or using for React Storybook
   HOC.WrappedComponent = Component;
 
   // for better debugging, it shows descriptive displayName in React dev tools
