@@ -26,6 +26,14 @@
     "rules": {
       "prettier/prettier": ["error", {"trailingComma": 'es5', "singleQuote": true}],
       "comma-dangle": [2, "always-multiline"],
+      "import/imports-first": 0,
+      "import/newline-after-import": 0,
+      "import/no-dynamic-require": 0,
+      "import/no-extraneous-dependencies": [2, {"devDependencies": true}],
+      "import/no-named-as-default": 0,
+      "import/no-unresolved": 2,
+      "import/prefer-default-export": 0,
+      "max-len": [2, 80, 4, { "ignoreStrings": true }],
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }
