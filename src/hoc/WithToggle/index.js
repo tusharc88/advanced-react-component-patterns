@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import hoistNonReactStatics from 'hoist-non-react-statics';
 import { TOGGLE_CONTEXT } from '../../constants';
 
 function withToggle(Component) {
@@ -17,7 +18,10 @@ function withToggle(Component) {
 
   // for better debugging, it shows descriptive displayName in React dev tools
   HOC.HOC.displayName = `withToggle ${Component.displayName || Component.name}`;
-  return HOC;
+
+  // wrapping HOC in hoistNonReactStatics to make all non react static things
+  // in Wrapped Component available at this HOC level
+  return hoistNonReactStatics(HOC);
 }
 
 export default withToggle;
