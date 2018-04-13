@@ -11,7 +11,11 @@ function withToggle(Component) {
     [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
   };
 
-  HOC.displayName = `withToggle ${Component.displayName || Component.name}`;
+  // for referring to inner component while testing
+  HOC.WrappedComponent = Component;
+
+  // for better debugging, it shows descriptive displayName in React dev tools
+  HOC.HOC.displayName = `withToggle ${Component.displayName || Component.name}`;
   return HOC;
 }
 
