@@ -14,8 +14,12 @@ const Root = () => (
   >
     <Toggle onToggle={on => console.log('toggle', on)}>
       <Toggle.Button />
-      <Toggle.On>The button is on</Toggle.On>
-      <Toggle.Off>The button is off</Toggle.Off>
+      <div>
+        <div>
+          <Toggle.On>The button is on</Toggle.On>
+          <Toggle.Off>The button is off</Toggle.Off>
+        </div>
+      </div>
     </Toggle>
   </div>
 );

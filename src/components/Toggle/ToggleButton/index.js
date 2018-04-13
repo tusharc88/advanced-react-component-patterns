@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Switch from '../../Switch/index';
+import { TOGGLE_CONTEXT } from '../constants';
 
-const ToggleButton = ({ on, toggle, ...props }) => (
-  <Switch on={on} onClick={toggle} {...props} />
-);
+const ToggleButton = (props, context) => {
+  const { on, toggle } = context[TOGGLE_CONTEXT];
+  return <Switch on={on} onClick={toggle} />;
+};
 
-ToggleButton.propTypes = {
-  on: PropTypes.bool,
-  toggle: PropTypes.func,
+ToggleButton.contextTypes = {
+  [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
 };
 
 ToggleButton.defaultProps = {
