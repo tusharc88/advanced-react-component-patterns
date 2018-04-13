@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ToggleOn from './ToggleOn/index';
 import ToggleOff from './ToggleOff/index';
 import ToggleButton from './ToggleButton/index';
-import { TOGGLE_CONTEXT } from './constants';
+import { TOGGLE_CONTEXT } from '../../constants';
 
 class Toggle extends React.Component {
   static On = ToggleOn;

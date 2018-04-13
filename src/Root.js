@@ -1,6 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import Toggle from './components/Toggle/index';
+import MyToggle from './components/Toggle/MyToggle/index';
 
 const Root = () => (
   <div
@@ -14,12 +15,9 @@ const Root = () => (
   >
     <Toggle onToggle={on => console.log('toggle', on)}>
       <Toggle.Button />
-      <div>
-        <div>
-          <Toggle.On>The button is on</Toggle.On>
-          <Toggle.Off>The button is off</Toggle.Off>
-        </div>
-      </div>
+      <Toggle.On>The button is on</Toggle.On>
+      <Toggle.Off>The button is off</Toggle.Off>
+      <MyToggle />
     </Toggle>
   </div>
 );
