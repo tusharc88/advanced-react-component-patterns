@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Switch from '../Switch/index';
+import ToggleOn from './ToggleOn/index';
+import ToggleOff from './ToggleOff/index';
+import ToggleButton from './ToggleButton/index';
 
 class Toggle extends React.Component {
+  static On = ToggleOn;
+  static Off = ToggleOff;
+  static Button = ToggleButton;
+
   static defaultProps = {
     onToggle: () => {},
   };
 
   static propTypes = {
     onToggle: PropTypes.func,
+    children: PropTypes.node.isRequired,
   };
 
   state = {
@@ -25,8 +32,14 @@ class Toggle extends React.Component {
   };
 
   render() {
-    const { on } = this.state;
-    return <Switch on={on} onClick={this.toggle} />;
+    const children = React.Children.map(this.props.children, child =>
+      React.cloneElement(child, {
+        on: this.state.on,
+        toggle: this.toggle,
+      })
+    );
+
+    return <div>{children}</div>;
   }
 }
 
