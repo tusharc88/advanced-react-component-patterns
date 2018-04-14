@@ -14,18 +14,14 @@ const Root = () => (
     }}
   >
     <Toggle
+      defaultOn
       onToggle={on => console.log('toggle', on)}
-      render={({ on, getTogglerProps }) => (
+      onReset={on => console.log('reset', on)}
+      render={toggle => (
         <div>
-          <Switch on={on} {...getTogglerProps()} />
+          <Switch {...toggle.getTogglerProps({ on: toggle.on })} />
           <hr />
-          <button
-            {...getTogglerProps({
-              onClick: () => alert('hi'),
-            })}
-          >
-            {on ? 'on' : 'off'}
-          </button>
+          <button onClick={() => toggle.reset()}>Reset</button>
         </div>
       )}
     />
