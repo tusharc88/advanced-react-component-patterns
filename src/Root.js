@@ -15,11 +15,17 @@ const Root = () => (
   >
     <Toggle
       onToggle={on => console.log('toggle', on)}
-      render={({ on, togglerProps }) => (
+      render={({ on, getTogglerProps }) => (
         <div>
-          <Switch on={on} {...togglerProps} />
+          <Switch on={on} {...getTogglerProps()} />
           <hr />
-          <button {...togglerProps}>{on ? 'on' : 'off'}</button>
+          <button
+            {...getTogglerProps({
+              onClick: () => alert('hi'),
+            })}
+          >
+            {on ? 'on' : 'off'}
+          </button>
         </div>
       )}
     />

@@ -16,6 +16,17 @@ class Toggle extends React.Component {
     on: false,
   };
 
+  getTogglerProps = ({ onClick, ...props } = {}) => ({
+    'aria-expanded': this.state.on,
+    onClick: (...args) => {
+      if (onClick) {
+        onClick(...args);
+      }
+      this.toggle(...args);
+    },
+    ...props,
+  });
+
   toggle = () => {
     this.setState(
       ({ on }) => ({ on: !on }),
@@ -29,10 +40,7 @@ class Toggle extends React.Component {
     return this.props.render({
       on: this.state.on,
       toggle: this.toggle,
-      togglerProps: {
-        'aria-expanded': this.state.on,
-        onClick: this.toggle,
-      },
+      getTogglerProps: this.getTogglerProps,
     });
   }
 }
