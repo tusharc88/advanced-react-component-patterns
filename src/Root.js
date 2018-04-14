@@ -2,6 +2,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import Toggle from './components/Toggle/index';
 import Switch from './components/Switch/index';
+// import MyUpperCaseInput from './components/MyUpperCaseInput/index';
 
 const Root = () => (
   <div
@@ -25,6 +26,7 @@ const Root = () => (
         </div>
       )}
     />
+    {/* <MyUpperCaseInput /> */}
   </div>
 );
 
