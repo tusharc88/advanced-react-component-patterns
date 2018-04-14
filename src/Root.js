@@ -1,6 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import Toggle from './components/Toggle/index';
+import Switch from './components/Switch/index';
 
 const Root = () => (
   <div
@@ -12,8 +13,15 @@ const Root = () => (
       textAlign: 'center',
     }}
   >
-    <p>My React App</p>
-    <Toggle onToggle={on => console.log('toggle', on)} />
+    <Toggle
+      onToggle={on => console.log('toggle', on)}
+      render={({ on, toggle }) => (
+        <div>
+          <Switch on={on} onClick={toggle} />
+          {on ? 'on' : 'off'}
+        </div>
+      )}
+    />
   </div>
 );
 

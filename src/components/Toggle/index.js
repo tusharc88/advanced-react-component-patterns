@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Switch from '../Switch/index';
 
 class Toggle extends React.Component {
   static defaultProps = {
     onToggle: () => {},
+    render: () => <div>Nothing to see here... Yet!</div>,
   };
 
   static propTypes = {
     onToggle: PropTypes.func,
+    render: PropTypes.func,
   };
 
   state = {
@@ -25,8 +26,10 @@ class Toggle extends React.Component {
   };
 
   render() {
-    const { on } = this.state;
-    return <Switch on={on} onClick={this.toggle} />;
+    return this.props.render({
+      on: this.state.on,
+      toggle: this.toggle,
+    });
   }
 }
 
